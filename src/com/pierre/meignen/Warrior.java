@@ -4,12 +4,7 @@ package com.pierre.meignen;
 public class Warrior extends Character{
 
 
-    public Warrior(String mCharacterName, int pv, int pa) {
-        super("Aragorne", 10, 20);
-    }
-
-    @Override
-    public void present(){
-        System.out.println();
+    public Warrior() {
+        super("Aragorne",10, 40);
     }
 }

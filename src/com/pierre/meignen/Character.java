@@ -7,18 +7,32 @@ package com.pierre.meignen;
 /**
  * character with attack point and life point and name parameters
  */
-public abstract class Character {
+public class Character {
 
     protected String mCharacterName;
-    protected String mCharacterType;
     protected int pv;
     protected int pa;
 
 
+    //TODO : Enrichir la méthode present() de la classe Character, dans les classes filles Magus et Warrior pour indiquer le type du personnage
+    /**
+     * Diplay Character and properties
+     * Character Name
+     * Character Type
+     * Nomber of pv
+     * Nomber of pa
+     */
+    public void present() {
+        System.out.println("caractéristique personnage : ");
+        System.out.println("Nom du personage :" + mCharacterName);
+        System.out.println(pv + "point(s) de vie");
+        System.out.println(pa + "point(s) de d'attaque");
+        System.out.println("");
+    }
+
     // Constructor
     public Character(String mCharacterName, int pv, int pa) {
         this.mCharacterName = mCharacterName;
-        this.mCharacterType = mCharacterType;
         this.pv = pv;
         this.pa = pa;
     }
@@ -26,11 +40,6 @@ public abstract class Character {
     // setter CharacterName
     public void setCharacterName (String mCharacterName) {
         this.mCharacterName = mCharacterName;
-    }
-
-    // setter CharacterType
-    public void setCharacterType (String mCharacterType) {
-        this.mCharacterType = mCharacterType;
     }
 
     // setter pv
@@ -41,17 +50,6 @@ public abstract class Character {
     // setter pa
     public int setPa() {
         return pa;
-    }
-
-    //TODO : Enrichir la méthode present() de la classe Character, dans les classes filles Magus et Warrior pour indiquer le type du personnage
-
-    @Override
-    public void present() {
-        System.out.println("caractéristique personnage : ");
-        System.out.println("Nom du personage :" + mCharacterName);
-        System.out.println("Type de personage :" + mCharacterType);
-        System.out.println(pv + "point(s) de vie");
-        System.out.println(pa + "point(s) de d'attaque");
     }
 
     //TODO : Créer une nouvelle méthode sur la classe Character, qui prend en paramètre un autre Character, et qui va retourner le personnage le plus fort des deux (par exemple, le personnage qui a le plus de points d’attaque, si identique, le personnage qui a le plus de points de vie, si identique, le premier personnage)

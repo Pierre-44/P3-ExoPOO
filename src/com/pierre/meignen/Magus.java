@@ -4,12 +4,7 @@ package com.pierre.meignen;
 public class Magus extends Character{
 
 
-    public Magus(String mCharacterName, int pv, int pa) {
-        super("Gandalf",15,15);
-    }
-
-    @Override
-    public void present(){
-        System.out.println();
+    public Magus() {
+        super("Gandalf",30,20);
     }
 }

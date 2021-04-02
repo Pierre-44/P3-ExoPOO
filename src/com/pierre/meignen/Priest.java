@@ -4,12 +4,8 @@ package com.pierre.meignen;
 public class Priest extends Character {
 
 
-    public Priest(String mCharacterName, int pv, int pa) {
-        super("Frodon", 25, 5);
+    public Priest() {
+        super("Frodon", 45, 5);
     }
 
-    @Override
-    public void present(){
-        System.out.println();
-    }
 }
