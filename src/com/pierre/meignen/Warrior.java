@@ -5,6 +5,6 @@ public class Warrior extends Character{
 
 
     public Warrior() {
-        super("Aragorne",10, 40);
+        super(" Aragorne ","Guerrier hummain",80, 20);
     }
 }

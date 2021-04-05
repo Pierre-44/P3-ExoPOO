@@ -10,9 +10,17 @@ package com.pierre.meignen;
 public class Character {
 
     protected String mCharacterName;
+    protected String mCharacterType;
     protected int pv;
     protected int pa;
 
+    // Constructor
+    public Character(String mCharacterName, String mCharacterType, int pv, int pa) {
+        this.mCharacterName = mCharacterName;
+        this.mCharacterType = mCharacterType;
+        this.pv = pv;
+        this.pa = pa;
+    }
 
     //TODO : Enrichir la méthode present() de la classe Character, dans les classes filles Magus et Warrior pour indiquer le type du personnage
     /**
@@ -23,55 +31,73 @@ public class Character {
      * Nomber of pa
      */
     public void present() {
-        System.out.println("caractéristique personnage : ");
+        System.out.println("Caractéristique personnage : ");
         System.out.println("Nom du personage :" + mCharacterName);
-        System.out.println(pv + "point(s) de vie");
-        System.out.println(pa + "point(s) de d'attaque");
+        System.out.println("type du personage :" + mCharacterType);
+        System.out.println(pv + " point de vie");
+        System.out.println(pa + " point de d'attaque");
         System.out.println("");
-    }
-
-    // Constructor
-    public Character(String mCharacterName, int pv, int pa) {
-        this.mCharacterName = mCharacterName;
-        this.pv = pv;
-        this.pa = pa;
-    }
-
-    // setter CharacterName
-    public void setCharacterName (String mCharacterName) {
-        this.mCharacterName = mCharacterName;
-    }
-
-    // setter pv
-    public int setPv() {
-        return pv;
-    }
-
-    // setter pa
-    public int setPa() {
-        return pa;
     }
 
     //TODO : Créer une nouvelle méthode sur la classe Character, qui prend en paramètre un autre Character, et qui va retourner le personnage le plus fort des deux (par exemple, le personnage qui a le plus de points d’attaque, si identique, le personnage qui a le plus de points de vie, si identique, le premier personnage)
 
     /**
-     * Comparative methode which takes another character as a parameter, and which will return the stronger character of the two
+     * Character compare of pv and pa
+     * @param character
+     * @return best character
      */
-    public void compareCharacter() {
+    private Character characterCompare(Character character) {
+        int comparePoints = this.pv - character.pv;
+        if (comparePoints < 0) {
+            return character;
+        } else if (comparePoints > 0) {
+            return this;
+        } else {
+            return null;
+        }
+    }
+    /**
+     * Compare 2 characters in fight , in first on pv, if equal on pa and if equal the first to attack win
+     * @param character vs other character
+     * @return best character or if equal the first to attack
+     */
+    protected Character winnerOfTheFight (Character character) {
+        System.out.println(mCharacterName + "combat" + character.mCharacterName + " :");
+        Character best = characterCompare(character);
+        // winner condition :
+        if (best == null) ;
+        {
+            best = characterCompare(character);
+            if (best == null || best == this) {
+                showTheWinner(this.mCharacterName);
+                {
+                    return this;
+                }
+            }
+        }
 
-        System.out.println();
+        showTheWinner(best.mCharacterName);
+        return best;
+    }
+
+
+    /**
+    * Show the winner !
+    */
+    private void showTheWinner(String theWinner) {
+        System.out.println("le vainqueur est "+ theWinner + "bravo à lui !");
     }
 
     //TODO : Créer une nouvelle méthode sur la classe Character, appelée actionOn, qui prend en paramètre un autre Character et qui va aller déduire des points de vie de ce personnage, les points d’attaque du personnage qui appelle la méthode. (par exemple, pour A.actionOn(B) : B.lifePoint ayant 10 à la fin de la fonction B aura plus que 5 dans lifePoint si A a 5 points d’attaque)
 
-
     /**
-     * Methode to perform action of Character to reduce pa on de pv of an other Caracter
+     * Methode to perform action of Character to reduce pa on pv of an other Character give in parameter
+     * @param character (character to be attacked)
      */
 
-    public void actionOn(){
-
-        System.out.println();
-
+    protected void actionOn(Character character){
+        System.out.println(this.mCharacterName + " attaque le " + character.mCharacterName + " qui a " + character.pv + " point(s) de vie :");
+        character.pv -= this.pa;
+        System.out.println("il reste" + character.pv + "points de vie à " + character.mCharacterName);
     }
 }

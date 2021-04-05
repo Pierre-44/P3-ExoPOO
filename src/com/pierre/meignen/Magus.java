@@ -5,6 +5,6 @@ public class Magus extends Character{
 
 
     public Magus() {
-        super("Gandalf",30,20);
+        super(" Gandalf ","Magicien blanc" ,90,10);
     }
 }
