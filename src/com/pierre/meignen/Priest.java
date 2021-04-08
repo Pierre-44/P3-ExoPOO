@@ -4,14 +4,18 @@ package com.pierre.meignen;
 public class Priest extends Character {
 
     @Override
-    protected void actionOn(Character character) {
+    public void actionOn(Character character) {
         System.out.println(this.mCharacterName + " soigne le " + character.mCharacterName + " qui a " + character.pv + " point(s) de vie :");
-        character.pv += this.pa;
-        System.out.println(character.mCharacterName + "a maintenant " + character.pv + "points de vie " );
+        character.pv += this.mWeaponPoints;
+        System.out.println(character.mCharacterName + "a maintenant " + character.pv + " points de vie !" );
     }
 
     public Priest() {
-        super(" Frodon ","hobit courageux", 95, 5);
+        super("Frodon",
+                "Hobit courageux",
+                90,
+                "Fake_dague",
+                10);
     }
 
 }

@@ -7,6 +7,9 @@ import com.pierre.meignen.Priest;
 public class Main {
 
         public static void main(String[] args) {
+                System.out.println("Présentation des protagonistes :");
+                System.out.println("");
+
                 // Prentation guerrier
                 Warrior guerrier1 = new Warrior();
                 guerrier1.present();
@@ -19,18 +22,13 @@ public class Main {
 
 
                 Character best = guerrier1.winnerOfTheFight(mage1);
-                System.out.println( best.mCharacterName + "gagne ce combat \n");
-
 
                 guerrier1.actionOn(mage1);
-                best = guerrier1.winnerOfTheFight(mage1);
-                System.out.println(best.mCharacterName + "gagne ce combat \n");
+
+                mage1.actionOn(pretre1);
+
+                mage1.actionOn(guerrier1);
 
                 pretre1.actionOn(mage1);
-
-                //mage1.actionOn(guerrier1);
-                //System.out.println(best.mCharacterName + "gagne ce combat \n");
-
-
         }
 }

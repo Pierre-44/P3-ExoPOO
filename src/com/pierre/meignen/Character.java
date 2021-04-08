@@ -1,25 +1,29 @@
 package com.pierre.meignen;
 
 
-
 //TODO : Créer une classe Character avec deux propriétés : points de vie et points d’attaque. Ajouter une méthode present() afin d’afficher les caractéristiques d’un personnage
 
 /**
  * character with attack point and life point and name parameters
  */
-public class Character {
+public class Character extends Weapon {
 
     protected String mCharacterName;
     protected String mCharacterType;
     protected int pv;
-    protected int pa;
+    protected String mWeaponName = getWeaponName();
+    protected int mWeaponPoints = getWeaponPoints();
+
 
     // Constructor
-    public Character(String mCharacterName, String mCharacterType, int pv, int pa) {
+    public Character(String mCharacterName, String mCharacterType, int pv, String mWeaponName, int mWeaponPoints) {
         this.mCharacterName = mCharacterName;
         this.mCharacterType = mCharacterType;
         this.pv = pv;
-        this.pa = pa;
+        this.mWeaponName = mWeaponName;
+        this.mWeaponPoints = mWeaponPoints;
+        //super.mWeaponName = getWeaponName();
+        //super.mWeaponPoints = getWeaponPoints();
     }
 
     //TODO : Enrichir la méthode present() de la classe Character, dans les classes filles Magus et Warrior pour indiquer le type du personnage
@@ -31,12 +35,12 @@ public class Character {
      * Nomber of pa
      */
     public void present() {
-        System.out.println("Caractéristique personnage : ");
+
         System.out.println("Nom du personage :" + mCharacterName);
         System.out.println("type du personage :" + mCharacterType);
         System.out.println(pv + " point de vie");
-        System.out.println(pa + " point de d'attaque");
-        System.out.println("");
+        System.out.println("arme en sa possesion " + mWeaponName + " qui a " + mWeaponPoints + " points d'attaque");
+        System.out.println(" ");
     }
 
     //TODO : Créer une nouvelle méthode sur la classe Character, qui prend en paramètre un autre Character, et qui va retourner le personnage le plus fort des deux (par exemple, le personnage qui a le plus de points d’attaque, si identique, le personnage qui a le plus de points de vie, si identique, le premier personnage)
@@ -62,7 +66,7 @@ public class Character {
      * @return best character or if equal the first to attack
      */
     protected Character winnerOfTheFight (Character character) {
-        System.out.println(mCharacterName + "combat" + character.mCharacterName + " :");
+        System.out.println(mCharacterName + " se mesure à " + character.mCharacterName + " :");
         Character best = characterCompare(character);
         // winner condition :
         if (best == null) ;
@@ -80,12 +84,11 @@ public class Character {
         return best;
     }
 
-
     /**
-    * Show the winner !
+    * Show the winner
     */
     private void showTheWinner(String theWinner) {
-        System.out.println("le vainqueur est "+ theWinner + "bravo à lui !");
+        System.out.println("le vainqueur est "+ theWinner + " bravo à lui !");
     }
 
     //TODO : Créer une nouvelle méthode sur la classe Character, appelée actionOn, qui prend en paramètre un autre Character et qui va aller déduire des points de vie de ce personnage, les points d’attaque du personnage qui appelle la méthode. (par exemple, pour A.actionOn(B) : B.lifePoint ayant 10 à la fin de la fonction B aura plus que 5 dans lifePoint si A a 5 points d’attaque)
@@ -95,9 +98,20 @@ public class Character {
      * @param character (character to be attacked)
      */
 
-    protected void actionOn(Character character){
-        System.out.println(this.mCharacterName + " attaque le " + character.mCharacterName + " qui a " + character.pv + " point(s) de vie :");
-        character.pv -= this.pa;
-        System.out.println("il reste" + character.pv + "points de vie à " + character.mCharacterName);
+    public void actionOn(Character character){
+        System.out.println(this.mCharacterName + " attaque " + character.mCharacterName + " qui a " + character.pv + " point(s) de vie avec comme arme " + mWeaponName + "arme avec " + mWeaponPoints + " points d'attaque.");
+        character.pv -= this.mWeaponPoints;
+        System.out.println("il reste " + character.pv + " points de vie à " + character.mCharacterName);
     }
+
+
+    public void setWeaponName(){
+        this.mWeaponName= getWeaponName();
+    }
+
+    public void setWeaponPoints(){
+        this.mWeaponPoints= getWeaponPoints();
+    }
+
+
 }
