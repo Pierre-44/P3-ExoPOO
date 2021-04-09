@@ -7,7 +7,7 @@ public class Warrior extends Character{
         super("Aragorne",
                 "Guerrier hummain",
                 70,
-                "Fake_épée",
+                "L'épée",
                 20);
     }
 }

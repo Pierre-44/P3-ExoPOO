@@ -7,14 +7,14 @@ public class Priest extends Character {
     public void actionOn(Character character) {
         System.out.println(this.mCharacterName + " soigne le " + character.mCharacterName + " qui a " + character.pv + " point(s) de vie :");
         character.pv += this.mWeaponPoints;
-        System.out.println(character.mCharacterName + "a maintenant " + character.pv + " points de vie !" );
+        System.out.println(character.mCharacterName + " a maintenant " + character.pv + " points de vie !" );
     }
 
     public Priest() {
         super("Frodon",
                 "Hobit courageux",
                 90,
-                "Fake_dague",
+                "La dague",
                 10);
     }
 

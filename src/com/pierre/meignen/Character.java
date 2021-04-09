@@ -14,7 +14,6 @@ public class Character extends Weapon {
     protected String mWeaponName;
     protected int mWeaponPoints;
 
-
     // Constructor
     public Character(String CharacterName, String CharacterType, int pv, String WeaponName, int WeaponPoints) {
         this.mCharacterName = CharacterName;
@@ -22,8 +21,6 @@ public class Character extends Weapon {
         this.pv = pv;
         this.mWeaponName = WeaponName;
         this.mWeaponPoints = WeaponPoints;
-
-
     }
 
     //TODO : Enrichir la méthode present() de la classe Character, dans les classes filles Magus et Warrior pour indiquer le type du personnage
@@ -99,7 +96,7 @@ public class Character extends Weapon {
      */
 
     public void actionOn(Character character){
-        System.out.println(this.mCharacterName + " attaque " + character.mCharacterName + " qui a " + character.pv + " point(s) de vie avec comme arme " + mWeaponName + "arme avec " + mWeaponPoints + " points d'attaque.");
+        System.out.println(this.mCharacterName + " attaque " + character.mCharacterName + " qui a " + character.pv + " point(s) de vie avec comme arme " + mWeaponName + " arme avec " + mWeaponPoints + " points d'attaque.");
         character.pv -= this.mWeaponPoints;
         System.out.println("il reste " + character.pv + " points de vie à " + character.mCharacterName);
     }

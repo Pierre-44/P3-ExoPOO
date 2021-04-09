@@ -7,7 +7,7 @@ public class Magus extends Character{
         super("Gandalf",
                 "Magicien blanc" ,
                 80,
-                "Fake_baton_de_magicien",
+                "Le baton de magicien",
                 20);
     }
 }
