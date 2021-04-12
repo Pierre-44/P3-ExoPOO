@@ -9,6 +9,8 @@ public class Priest extends Character {
         super("Frodon","Hobit courageux",90,new Dagger("dague",20));
     }
 
+
+
     @Override
     public void actionOn(Character character) {
         System.out.println(this.mCharacterName + " soigne le " + character.mCharacterName + " qui a " + character.pv + " point(s) de vie :");
