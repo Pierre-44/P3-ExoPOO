@@ -14,10 +14,11 @@ public abstract class Character {
     protected Weapon mWeapon;
 
     // Constructor
-    public Character(String CharacterName, String CharacterType, int pv) {
+    public Character(String CharacterName, String CharacterType, int pv, Weapon weapon) {
         this.mCharacterName = CharacterName;
         this.mCharacterType = CharacterType;
         this.pv = pv;
+        this.mWeapon = weapon;
     }
 
     //TODO : Enrichir la méthode present() de la classe Character, dans les classes filles Magus et Warrior pour indiquer le type du personnage
@@ -91,7 +92,7 @@ public abstract class Character {
      * @param character (character to be attacked)
      */
 
-    public void actionOn(Character character,Weapon weapon){
+    public void actionOn(Character character){
         System.out.println(this.mCharacterName + " attaque " + character.mCharacterName + " qui a " + character.pv + " point(s) de vie avec comme arme " + mWeapon.mWeaponName + " arme avec " + mWeapon.mWeaponPoints + " points d'attaque.");
         character.pv -= this.mWeapon.mWeaponPoints;
         System.out.println("il reste " + character.pv + " points de vie à " + character.mCharacterName);

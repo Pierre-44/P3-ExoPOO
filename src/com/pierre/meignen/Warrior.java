@@ -4,6 +4,6 @@ package com.pierre.meignen;
 public class Warrior extends Character{
 
     public Warrior() {
-        super("Aragorn","Guerrier courageux",80);
+        super("Aragorn","Guerrier courageux",80,new Sword("Epée",20));
     }
 }

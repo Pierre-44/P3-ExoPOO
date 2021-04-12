@@ -6,11 +6,11 @@ public class Priest extends Character {
     private static final Object Dagger = new Dagger("dague",20);
 
     public Priest() {
-        super("Frodon","Hobit courageux",90);
+        super("Frodon","Hobit courageux",90,new Dagger("dague",20));
     }
 
     @Override
-    public void actionOn(Character character,Weapon weapon) {
+    public void actionOn(Character character) {
         System.out.println(this.mCharacterName + " soigne le " + character.mCharacterName + " qui a " + character.pv + " point(s) de vie :");
         character.pv += this.mWeapon.mWeaponPoints;
         System.out.println(character.mCharacterName + " a maintenant " + character.pv + " points de vie !" );
