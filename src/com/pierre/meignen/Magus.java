@@ -4,10 +4,6 @@ package com.pierre.meignen;
 public class Magus extends Character{
 
     public Magus() {
-        super("Gandalf",
-                "Magicien blanc" ,
-                80,
-                "Le baton de magicien",
-                20);
+        super("Gandalf","Magicien blanc" ,80);
     }
 }

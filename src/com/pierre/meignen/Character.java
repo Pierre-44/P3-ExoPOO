@@ -6,21 +6,18 @@ package com.pierre.meignen;
 /**
  * character with attack point and life point and name parameters
  */
-public class Character extends Weapon {
+public abstract class Character {
 
     protected String mCharacterName;
     protected String mCharacterType;
     protected int pv;
-    protected String mWeaponName;
-    protected int mWeaponPoints;
+    protected Weapon mWeapon;
 
     // Constructor
-    public Character(String CharacterName, String CharacterType, int pv, String WeaponName, int WeaponPoints) {
+    public Character(String CharacterName, String CharacterType, int pv) {
         this.mCharacterName = CharacterName;
         this.mCharacterType = CharacterType;
         this.pv = pv;
-        this.mWeaponName = WeaponName;
-        this.mWeaponPoints = WeaponPoints;
     }
 
     //TODO : Enrichir la méthode present() de la classe Character, dans les classes filles Magus et Warrior pour indiquer le type du personnage
@@ -36,7 +33,6 @@ public class Character extends Weapon {
         System.out.println("Nom du personage :" + mCharacterName);
         System.out.println("type du personage :" + mCharacterType);
         System.out.println(pv + " point de vie");
-        System.out.println("arme en sa possesion " + mWeaponName + " qui a " + mWeaponPoints + " points d'attaque");
         System.out.println(" ");
     }
 
@@ -95,9 +91,10 @@ public class Character extends Weapon {
      * @param character (character to be attacked)
      */
 
-    public void actionOn(Character character){
-        System.out.println(this.mCharacterName + " attaque " + character.mCharacterName + " qui a " + character.pv + " point(s) de vie avec comme arme " + mWeaponName + " arme avec " + mWeaponPoints + " points d'attaque.");
-        character.pv -= this.mWeaponPoints;
+    public void actionOn(Character character,Weapon weapon){
+        System.out.println(this.mCharacterName + " attaque " + character.mCharacterName + " qui a " + character.pv + " point(s) de vie avec comme arme " + mWeapon.mWeaponName + " arme avec " + mWeapon.mWeaponPoints + " points d'attaque.");
+        character.pv -= this.mWeapon.mWeaponPoints;
         System.out.println("il reste " + character.pv + " points de vie à " + character.mCharacterName);
     }
+
 }
